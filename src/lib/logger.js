@@ -1,5 +1,5 @@
-import formatter from './formatter';
-import * as utils from './utils';
+import formatter from './formatter.js';
+import * as utils from './utils.js';
 
 const extractErrorDetails = obj => {
 	if (obj instanceof Error) {
@@ -31,7 +31,7 @@ const loggerArgs = (level, message, ...metas) => {
 		args.push(
 			metas.reduceRight((currentFormattedMetas, meta) =>
 				Object.assign({}, currentFormattedMetas, extractErrorDetails(meta)),
-			{})
+				{})
 		);
 	}
 	return args;
@@ -39,7 +39,7 @@ const loggerArgs = (level, message, ...metas) => {
 
 class Logger {
 
-	constructor (deps = {}) {
+	constructor(deps = {}) {
 		this.deps = Object.assign({ formatter }, deps);
 		this.context = {};
 		// create logging methods
@@ -48,17 +48,17 @@ class Logger {
 		);
 	}
 
-	log (level, message, ...metas) {
+	log(level, message, ...metas) {
 		const args = loggerArgs(level, message, ...metas, this.context)
 			.filter(utils.identity);
 		this.doLog.apply(this, args);
 	}
 
-	doLog (/* level, message, meta */) {
+	doLog(/* level, message, meta */) {
 		// to be implemented by subclasses
 	}
 
-	addContext (meta = {}) {
+	addContext(meta = {}) {
 		this.context = Object.assign({}, this.context, meta);
 	}
 

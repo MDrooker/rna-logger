@@ -1,5 +1,5 @@
-import FunctionLogger from './lib/function-logger';
-import AppLogger from './lib/app-logger';
+import FunctionLogger from './lib/function-logger.js';
+import AppLogger from './lib/app-logger.js';
 import debugModule from 'debug';
 
 const getLogger = () => {

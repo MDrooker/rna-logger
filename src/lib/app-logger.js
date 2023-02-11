@@ -1,5 +1,5 @@
 import winston from 'winston';
-import Logger from './logger';
+import Logger from './logger.js';
 
 class AppLogger extends Logger {
 	constructor(deps = {}) {
