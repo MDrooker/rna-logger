@@ -1,11 +1,9 @@
 node_modules
-dist
 .*.sw*
 .idea
 *.log
 **/config/*.json
 .next/
-.npmrc
 #Ignore files build by Visual Studio
 *.obj
 *.exe

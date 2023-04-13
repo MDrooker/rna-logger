@@ -8,17 +8,17 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-var _formatter = /*#__PURE__*/ _interopRequireDefault(require("./formatter"));
-var _utils = /*#__PURE__*/ _interopRequireWildcard(require("./utils"));
-function _arrayLikeToArray(arr, len) {
+var _formatter = /*#__PURE__*/ _interop_require_default(require("./formatter.js"));
+var _utils = /*#__PURE__*/ _interop_require_wildcard(require("./utils.js"));
+function _array_like_to_array(arr, len) {
     if (len == null || len > arr.length) len = arr.length;
     for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
     return arr2;
 }
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+function _array_without_holes(arr) {
+    if (Array.isArray(arr)) return _array_like_to_array(arr);
 }
-function _classCallCheck(instance, Constructor) {
+function _class_call_check(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
     }
@@ -32,7 +32,7 @@ function _defineProperties(target, props) {
         Object.defineProperty(target, descriptor.key, descriptor);
     }
 }
-function _createClass(Constructor, protoProps, staticProps) {
+function _create_class(Constructor, protoProps, staticProps) {
     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor;
@@ -44,7 +44,7 @@ function _instanceof(left, right) {
         return left instanceof right;
     }
 }
-function _interopRequireDefault(obj) {
+function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
     };
@@ -57,7 +57,7 @@ function _getRequireWildcardCache(nodeInterop) {
         return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
     })(nodeInterop);
 }
-function _interopRequireWildcard(obj, nodeInterop) {
+function _interop_require_wildcard(obj, nodeInterop) {
     if (!nodeInterop && obj && obj.__esModule) {
         return obj;
     }
@@ -88,22 +88,22 @@ function _interopRequireWildcard(obj, nodeInterop) {
     }
     return newObj;
 }
-function _iterableToArray(iter) {
+function _iterable_to_array(iter) {
     if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
-function _nonIterableSpread() {
+function _non_iterable_spread() {
     throw new TypeError("Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+function _to_consumable_array(arr) {
+    return _array_without_holes(arr) || _iterable_to_array(arr) || _unsupported_iterable_to_array(arr) || _non_iterable_spread();
 }
-function _unsupportedIterableToArray(o, minLen) {
+function _unsupported_iterable_to_array(o, minLen) {
     if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    if (typeof o === "string") return _array_like_to_array(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor) n = o.constructor.name;
     if (n === "Map" || n === "Set") return Array.from(n);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _array_like_to_array(o, minLen);
 }
 var extractErrorDetails = function(obj) {
     if (_instanceof(obj, Error)) {
@@ -148,7 +148,7 @@ var Logger = /*#__PURE__*/ function() {
     function Logger() {
         var deps = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
         var _this = this;
-        _classCallCheck(this, Logger);
+        _class_call_check(this, Logger);
         this.deps = Object.assign({
             formatter: _formatter.default
         }, deps);
@@ -169,11 +169,11 @@ var Logger = /*#__PURE__*/ function() {
                 }
                 return _this.log.apply(_this, [
                     level
-                ].concat(_toConsumableArray(args)));
+                ].concat(_to_consumable_array(args)));
             };
         });
     }
-    _createClass(Logger, [
+    _create_class(Logger, [
         {
             key: "log",
             value: function log(level, message) {
@@ -183,7 +183,7 @@ var Logger = /*#__PURE__*/ function() {
                 var args = loggerArgs.apply(void 0, [
                     level,
                     message
-                ].concat(_toConsumableArray(metas), [
+                ].concat(_to_consumable_array(metas), [
                     this.context
                 ])).filter(_utils.identity);
                 this.doLog.apply(this, args);

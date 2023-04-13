@@ -16,7 +16,7 @@ _export(exports, {
         return formatFields;
     }
 });
-var _utils = /*#__PURE__*/ _interopRequireWildcard(require("./utils"));
+var _utils = /*#__PURE__*/ _interop_require_wildcard(require("./utils.js"));
 function _getRequireWildcardCache(nodeInterop) {
     if (typeof WeakMap !== "function") return null;
     var cacheBabelInterop = new WeakMap();
@@ -25,7 +25,7 @@ function _getRequireWildcardCache(nodeInterop) {
         return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
     })(nodeInterop);
 }
-function _interopRequireWildcard(obj, nodeInterop) {
+function _interop_require_wildcard(obj, nodeInterop) {
     if (!nodeInterop && obj && obj.__esModule) {
         return obj;
     }
@@ -56,7 +56,7 @@ function _interopRequireWildcard(obj, nodeInterop) {
     }
     return newObj;
 }
-function _objectDestructuringEmpty(o) {
+function _object_destructuring_empty(o) {
     if (o === null || o === void 0) throw new TypeError("Cannot destructure " + o);
     return o;
 }
@@ -67,7 +67,7 @@ var formatMessage = function(message) {
     return sanitise(message);
 };
 var formatFields = function() {
-    var fields = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : _objectDestructuringEmpty({});
+    var fields = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : _object_destructuring_empty({});
     var formattedFields = Object.keys(fields).map(function(fieldName) {
         var fieldValue = fields[fieldName];
         return "".concat(fieldName, "=").concat(fieldValue);
